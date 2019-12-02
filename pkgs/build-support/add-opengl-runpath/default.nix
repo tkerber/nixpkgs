@@ -3,7 +3,7 @@
 stdenv.mkDerivation {
   name = "add-opengl-runpath";
 
-  driverLink = "/run/opengl-driver" + lib.optionalString stdenv.isi686 "-32";
+  driverLink = "/run/opengl-driver" + lib.optionalString stdenv.is32bit "-32";
 
   buildCommand = ''
     mkdir -p $out/nix-support
