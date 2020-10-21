@@ -6,13 +6,13 @@
 
 stdenv.mkDerivation rec {
   pname = "looking-glass-client";
-  version = "B2-rc2";
+  version = "B2";
 
   src = fetchFromGitHub {
     owner = "gnif";
     repo = "LookingGlass";
     rev = version;
-    sha256 = "0xcnvn7b621sxzld53csrm257agz5bizxl4bnjqwx8djpj0yhv6x";
+    sha256 = "100b5kzh8gr81kzw5fdqz2jsms25hv3815d31vy3qd6lrlm5gs3d";
     fetchSubmodules = true;
   };
 
@@ -26,6 +26,7 @@ stdenv.mkDerivation rec {
 
   enableParallelBuilding = true;
 
+  CFLAGS = "-mavx";
   sourceRoot = "source/client";
 
   installPhase = ''
